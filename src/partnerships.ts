@@ -17,8 +17,5 @@ export const updateTeamPartnership = ( allTeams : Array<Team>, teamId : number, 
 };
 
 export const removePartner = (team : Team , partnerId : number) : Team => {
-    
-    team.partners.filter(number => number != partnerId )
-
-    return team
-}
+    return { ...team, partners: team.partners.filter((number) => number !== partnerId)};
+};

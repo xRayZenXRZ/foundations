@@ -5,6 +5,8 @@ export const teams: Array<Team> = [
     {id : 2, name : "Horizon", base : "Amérique du Nord", title : "Toujours plus loin", memberCount : 95, partners : []},
     {id : 3, name : "Kepler", base : "Asie", title : "Observer, calculer, découvrir ", memberCount : 80, partners : []},
     {id : 4, name : "Nova", base : "Afrique", title : "La science sans frontières", memberCount : 70, partners : []},
-    {id : 5, name : "Pulsar", base : "Amérique du Sud", title : "Vers l'inconnu ", memberCount : 65, partners : [3]},
-    {id : 6, name : "Kepler", base : "Océanie", title : "Ensemble au-delà", memberCount : 55, partners : []}
+    {id : 5, name : "Pulsar", base : "Amérique du Sud", title : "Vers l'inconnu ", memberCount : 65, partners : []},
+    {id : 6, name : "Zéntith", base : "Océanie", title : "Ensemble au-delà", memberCount : 55, partners : []}
+    //{id : 6, name : "verfication", base : "Antarctique", title : "Verification", memberCount : 12, partners : []}
+    //Type '"Antarctique"' is not assignable to type 'Baselocation'
 ]

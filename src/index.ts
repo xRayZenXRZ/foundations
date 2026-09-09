@@ -1,63 +1,72 @@
 import { teams } from "./data/teams";
 import { crewMembers } from "./data/crewMembers";
-import { createCrewCards, getDisplayName, hasSkill, isAvailable } from "./crew";
+import { createCrewCards, findTeamById, getDisplayName, hasSkill, isAvailable } from "./crew";
 import type { CrewCard } from "./types/CrewCard";
 import { removePartner, updateTeamPartnership } from "./partnerships";
 import type { Team } from "./types/Team";
-import { describeMissionState, type MissionState } from "./types/MissionState";
-import { findById } from "./collections";
+import { findById, replaceById } from "./collections";
+import { describeMissionState } from "./mission";
+import type { MissionState } from "./types/MissionState";
 
 console.log("Le centre de contrôle de Foundations est opérationnel.");
 
 
 // Verifier d'abord qu'elle existe 
 //...
-//console.log(teams)
 
 //destructuration.
-//const [team_1, team_2, ...reste] = teams
+const [team_1, team_2, ...reste] = teams
 
-//console.log(team_1?.name + " : " + team_1?.title)
+console.log(team_1?.name + " : " + team_1?.title)
+
+console.table(teams)
 
 
 //2.3
 
-const crewMember = crewMembers[0];
+console.table(crewMembers.find(crewMember => crewMember.name === "Alonzo Church"))
 
-//console.log(crewMembers.find(crewMember => crewMember.name === "Alonzo Church"))
+console.table(crewMembers.filter(crewMember => isAvailable(crewMember)))
 
-//console.log(crewMembers.filter(isAvailable))
+console.table(crewMembers.filter(crewMember => hasSkill(crewMember, "communication")))
 
-//console.log(crewMembers.filter(crewMember => hasSkill(crewMember, "communication")))
-
-//console.log(crewMembers.map(crewMember=>getDisplayName(crewMember)))
+console.table(crewMembers.map(crewMember=>getDisplayName(crewMember)))
 
 //3 
 
-//const crewCards : Array<CrewCard> = createCrewCards(crewMembers)
+const crewCards : Array<CrewCard> = createCrewCards(crewMembers)
 
-//console.table(crewCards)
+console.table(crewCards)
 
-//console.table(teams)
+const withAurorePartnership: Array<Team> = updateTeamPartnership(teams, 1, 2);
 
-//const withAurorePartnership: Array<Team> = updateTeamPartnership(teams, 1, 2);
-//const partnerTeams: Array<Team> = updateTeamPartnership(withAurorePartnership, 2, 1);
+const partnerTeams: Array<Team> = updateTeamPartnership(withAurorePartnership, 2, 1);
 
-//console.table(partnerTeams)
+console.table(partnerTeams)
 
-//const loadingState: MissionState = { status: "loading" };
-//const successState: MissionState = { status: "success" ,data : crewCards };
-//const errorState: MissionState = { status: "error", message : "Communication avec la base interrompue"}
 
-//describeMissionState(loadingState)
+//5
+
+const loadingState: MissionState = { status: "loading" };
+const successState: MissionState = { status: "success" , data : crewCards };
+const errorState: MissionState = { status: "error", message : "Communication avec la base interrompue"}
+
+//console.log(successState.data) => "ReferencError : Cannot acces 'sucessState' before intialisation."
+
+console.log(describeMissionState(errorState))
+console.log(describeMissionState(successState))
+console.log(describeMissionState(loadingState))
 
 //6
 
-console.log(findById(teams, 3))
+console.table(findById(teams, 3))
 
-console.log(findById(crewMembers, 5))
+//Remplace l'équipe ayant l'identifiant 3 sans modifier le tableau original.
 
-console.log(findById(createCrewCards(crewMembers),2))
+const teamToReplace = findById(teams, 1);
+const teamWithToReplace = findById(teams,3)
+if (teamToReplace && teamWithToReplace) {
+	const updatedTeams = replaceById(teams, { ...teamToReplace, id: teamWithToReplace.id });
 
-
-
+	console.table(updatedTeams);
+}
