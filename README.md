@@ -13,3 +13,10 @@ bun run index.ts
 ```
 
 This project was created using `bun init` in bun v1.4.2. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+
+
+# Questions d'observation de l'exercice 2 :
+
+1. 
+2.
+3.
