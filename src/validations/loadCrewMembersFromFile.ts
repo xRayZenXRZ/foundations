@@ -6,15 +6,11 @@ import { loadCrewMembers } from "./loadCrewMembers";
 export const loadCrewMembersFromFile = async (
   path: string = "./src/data/crewMembers.json",
 ): Promise<Array<CrewMember>> => {
-  try {
-    const file = Bun.file(path);
-
-    const response = await file.json();
-
-    return parseCrewMembersResponse(response);
-  } catch (error) {
-    throw new Error(
-      `Échec du chargement : ${error instanceof Error ? error.message : error}`,
-    );
+  const file = Bun.file(path);
+  const exists = await file.exists();
+  if (!exists) {
+    throw new Error(`Fichier introuvable : ${path}`);
   }
+  const response = await file.json();
+  return parseCrewMembersResponse(response);
 };

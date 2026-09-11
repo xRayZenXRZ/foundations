@@ -1,11 +1,9 @@
-// fonction de l'exercice 4
 import type { Team } from "./types/Team";
 
 export const addPartner = (teamet: Team, partnerId: number): Team => {
   if (teamet.partners.includes(partnerId)) {
     return teamet;
   }
-
   return { ...teamet, partners: [...teamet.partners, partnerId] };
 };
 
@@ -15,11 +13,9 @@ export const updateTeamPartnership = (
   partnerId: number,
 ): Array<Team> => {
   const teamExists = allTeams.some((team) => team.id === teamId);
-
   if (!teamExists) {
     return allTeams;
   }
-
   return allTeams.map((team) =>
     team.id === teamId ? addPartner(team, partnerId) : team,
   );

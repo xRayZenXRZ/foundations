@@ -7,13 +7,10 @@ export const loadMissionState = async (
 ): Promise<MissionState> => {
   try {
     const crew = await loader();
-
     if (!crew) {
-      throw new Error("Crew data is missing");
+      throw new Error("data manquante");
     }
-
     const crewCards = createCrewCards(crew);
-
     return {
       status: "success",
       data: crewCards,
@@ -21,7 +18,7 @@ export const loadMissionState = async (
   } catch (error) {
     return {
       status: "error",
-      message: error instanceof Error ? error.message : "Unknown error",
+      message: error instanceof Error ? error.message : "erreur inconnue",
     };
   }
 };
