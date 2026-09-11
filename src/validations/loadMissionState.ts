@@ -11,6 +11,13 @@ export const loadMissionState = async (
       throw new Error("data manquante");
     }
     const crewCards = createCrewCards(crew);
+
+    if (crewCards.length === 0) {
+      return {
+        status: "empty",
+      };
+    }
+
     return {
       status: "success",
       data: crewCards,

@@ -1,7 +1,7 @@
 /*
 T est un parametre généric permettant à la fonction de travailler sur toute type Objet, tant que ces objets possedant une propriété id : number.
-le paramètre items est un tableau de T objet et id est un identifier numeric permettant sa recherche. la fonction utilise find() qui retourn le premier item correspondant
-s'il existe aucun find() retourn undefined. (T | undefined)
+le paramètre items est un tableau de T objet et id est un identifier numeric permettant sa recherche. la fonction utilise find() qui retourne la premiere item correspondant
+s'il existe aucune find() retourn undefined. (T | undefined)
 */
 export const findById = <T extends { id: number }>(
   items: Array<T>,

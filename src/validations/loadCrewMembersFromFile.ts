@@ -11,6 +11,6 @@ export const loadCrewMembersFromFile = async (
   if (!exists) {
     throw new Error(`Fichier introuvable : ${path}`);
   }
-  const response = await file.json();
-  return parseCrewMembersResponse(response);
+  const payload: unknown = await file.json();
+  return parseCrewMembersResponse(payload);
 };

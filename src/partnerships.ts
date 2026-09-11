@@ -27,3 +27,10 @@ export const removePartner = (team: Team, partnerId: number): Team => {
     partners: team.partners.filter((number) => number !== partnerId),
   };
 };
+
+// Exercice complémentaire :
+/*
+export const createPartnership = (
+
+)
+*/
