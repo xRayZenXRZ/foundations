@@ -1,27 +1,5 @@
-# TD Fondations
 
-## Étudiant
-
-- Prénom : Tsogt-Erdene
-- Nom : ALTANTUYA
-- Adresse mail universitaire : tsogt-erdene.altantuya2@etu-univ.lorraine.fr
-- Groupe de TD : 1
-
-## Exercices réalisés
-
-- Exercice 2
-- Exercice 3
-- Exercice 4
-- Exercice 5
-- Exercice 6
-- Bonus : tests unitaires
-- Bonus : chargement asynchrone
-
-## Exercices non réalisés
-
-- Aucune
-
-## Déclaration d'usage de l'IA générative
+# Utilisation de l'intelligence artificielle : 
 
 L'utilisation de l'intelligence artificielle était limitée uniquement dans la vérification et de compréhension des notions de cours & td, par exemple : 
 
@@ -40,61 +18,26 @@ En dehors de l'utilisation de l'intelligence artificielle, l'utilisation de libr
 
 (Sur l'indentation & format de code : Utilisation de l'extension `Prettier` sur vsc)
 
-## Réponses aux questions d'observation
-
-### Exercice 2
-
-```md
-1. Avec `filter`, décrivez-vous les étapes de parcours du tableau ou la propriété du résultat attendu ?
-2. Dans `crewMembers.filter(isAvailable)`, quel rôle joue la fonction `isAvailable` ?
-3. Les fonctions `getDisplayName`, `hasSkill` et `isAvailable` modifient-elles leurs arguments ou produisent-elles une nouvelle valeur ?
-```
-
-### Reponses aux Questions d'observation de l'exercice 2 :
+# Questions d'observation de l'exercice 2 :
 
 1. On décrit la propriété du résultat attendu. (En CM, nous avions fait la distinction : code impératif -> on écrit une boucle étape par étape, au contraire du code déclaratif -> où l'on veut juste les éléments disponibles.)
 2. `isAvailable` joue le rôle de fonction callback, elle se contente de dire `true` ou `false` pour un membre donnée. La méthode `filter()` fait le travail de tri.
 3. Elles produisent toutes une nouvelle valeur avec `hasSkill` produisant un nouveau booléen (etc... ). Et elles ne modifient pas leurs arguments.
 
-### Exercice 3
-
-```md
-1. Quelles fonctions de cette partie calculent une valeur ?
-2. Quelle instruction produit un effet observable à l'extérieur du calcul ?
-3. Pour les mêmes tableaux `teams` et `crewMembers`, les fonctions écrites produisent-elles toujours les mêmes résultats ?
-```
-
-### Responses aux Questions d'observation de l'exercice 3 :
+# Questions d'observation de l'exercice 3 :
 
 1. Toutes les fonctions de l'exercice calculent et retournent une valeur. (Calculer une valeur = entrée donnée + fabrication nouveau résultat)
 2. La fonction `console.table()` ou `console.log()` calculent et interagit avec l'extérieur en affichant sur le terminal le résultat du calcul.
 3. Oui puisqu'elles ne dépendent pas d'une donnée particulière extérieure.
 
-### Exercice 4
-
-```md
-1. Pourquoi `auroreTeam !== updatedAurore` alors que les deux objets représentent l'équipe Aurore ?
-2. Quels éléments du tableau retourné par `updateTeamPartnership` conservent leur référence ? Lesquels obtiennent une nouvelle référence ?
-3. En quoi l'absence de mutation facilite-t-elle la comparaison entre l'ancien état et le nouvel état ?
-4. Que pourrait-il arriver si deux parties d'un programme partageaient le même objet et que l'une d'elles le modifiait directement ?
-```
-
-### Reponses aux Question d'observation de l'exercice 4 : 
+# Question d'observation de l'exercice 4 : 
 
 1. `!==` l'opérateur compare les objets par rapport à leur adresse mémoire. Ils sont différents car la fonction `addPartner` a créé un nouvel objet avec l'opérateur spread, on n'a pas modifié l'objet d'origine.
 2. Les équipes conservent leur référence d'origine, seule l'équipe victime de la fonction `addPartner` obtient une nouvelle référence. (réponse -> 4.1)
 3. Car l'état change, comme on ne "mute" pas, c'est-à-dire qu'on ne modifie pas l'objet directement, l'opérateur `!==` suffit pour connaître s'il y a eu un changement. (Facilitation plus tard pour React, car comparer toutes les propriétés pourrait s'avérer gourmand, source : doc react.)
 4. On pourrait avoir une asymétrie des données (s'il un programme A,B et A modifient sans que B soit renseigner par avant cela pourrait produire des erreurs.)
 
-### Exercice 5
-
-```md
-1. La fonction `describeMissionState` réalise-t-elle elle-même un chargement ou décrit-elle le résultat à produire pour un état donné ?
-2. Pourquoi séparer les trois états plutôt que d'utiliser simultanément un booléen `isLoading`, des données optionnelles et un message d'erreur optionnel ?
-3. Quels états incohérents l'union discriminée rend-elle impossibles à représenter ?
-```
-
-### Reponses aux Question d'observation de l'exercice 5 : 
+# Question d'observation de l'exercice 5 : 
 
 5.2 -> "ReferencError : Cannot access 'successState' before initialization."
 
@@ -102,41 +45,28 @@ En dehors de l'utilisation de l'intelligence artificielle, l'utilisation de libr
 2. On restreint le type par une condition ainsi que leur output empêchant des états non définis donc limitant de multiples des états incohérents.
 3. Il est impossible pour les états `loading` et `error` d'avoir les `data`.
 
-### Exercice 6
-
-```md
-1. Que représente `T` ?
-2. Que garantit `extends { id: number }` ?
-3. Pourquoi le retour peut-il être `undefined` ?
-```
-
-### Reponses aux Question d'observation de l'exercice 6 :
+# Question d'observation de l'exercice 6 :
 
 1. `T` est une variable de type générique, c'est-à-dire que `T` pourrait être remplacé par le type d'objet voulu au moment de l'appel de la fonction.
 2. On s'assure que n'importe quel type d'objet passé possède une propriété `id : number`.
 3. Si aucun élément ne correspond à la recherche,la méthode `find()` renvoie `undefined`.
 
+# Question d'observation de l'exercice Tests : 
 
-### Bilan
+1. Pour garantir son isolation, sa rapidité et son déterminisme (on exécute en local, pour débugger rapidement, on ne dépend pas d'un réseau extérieur).
+2. Une fonction pure est simple à tester, celle-ci ne dépendant que de ses arguments en entrée pour produire une sortie.
+3. On vérifier l'absence de modification garantissant qu'on respecte le principe d'immutabilité.
+
+# Question de recul : 
 
 1. `unknown` est plus strict dans son fonctionnement, permettant donc d'effectuer des vérifications dessus.
 2. Non, l'assertion n'effectue aucune validation pendant l'exécution, due à `as` n'existe que pour le compilateur TypeScript et disparaît aussitôt que le code est transformé en JavaScript.
 3. Les deux utilisent l'union discriminée, `MissionState` utilise `status` pour savoir si on peut accéder à la `data` ou `message`, `safeParse` retourne un objet avec `success` qui vaudra `true` ou `false`
 
-### Bonus : tests unitaires
+# Qui suis-je ? 
 
-- fait 
+- Groupe de TD : 1
+- Nom : ALTANTUYA
+- Prénom : Tsogt-Erdene
+- Mail Universitaire : tsogt-erdene.altantuya2@etu-univ.lorraine.fr
 
-### Bonus : chargement asynchrone
-
-```md
-1. Pourquoi un test unitaire évite-t-il généralement les appels réseau et les données partagées modifiables ?
-2. En quoi une fonction pure est-elle plus simple à tester ?
-3. Pourquoi faut-il vérifier à la fois le résultat retourné et l'absence de mutation de l'entrée ?
-```
-
-### Reponses aux Question de Bonus (chargement asychrone) : 
-
-1. Pour garantir son isolation, sa rapidité et son déterminisme (on exécute en local, pour débugger rapidement, on ne dépend pas d'un réseau extérieur).
-2. Une fonction pure est simple à tester, celle-ci ne dépendant que de ses arguments en entrée pour produire une sortie.
-3. On vérifier l'absence de modification garantissant qu'on respecte le principe d'immutabilité.
