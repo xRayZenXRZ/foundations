@@ -8,7 +8,11 @@ import {
   getTeamName,
   findTeamById,
 } from "./crew";
-import { addPartner, updateTeamPartnership } from "./partnerships";
+import {
+  addPartner,
+  createPartnership,
+  updateTeamPartnership,
+} from "./partnerships";
 import { describeMissionState } from "./mission";
 import { findById, replaceById } from "./collections";
 import type { MissionState } from "./types/MissionState";

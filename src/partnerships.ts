@@ -1,3 +1,4 @@
+import { findTeamById } from "./crew";
 import type { Team } from "./types/Team";
 
 export const addPartner = (teamet: Team, partnerId: number): Team => {
@@ -29,8 +30,23 @@ export const removePartner = (team: Team, partnerId: number): Team => {
 };
 
 // Exercice complémentaire :
-/*
-export const createPartnership = (
 
-)
-*/
+export const createPartnership = (
+  allTeams: Array<Team>,
+  teamId: number,
+  partnerId: number,
+): Array<Team> => {
+  const withPartnership: Array<Team> = updateTeamPartnership(
+    allTeams,
+    teamId,
+    partnerId,
+  );
+
+  const partnerTeam: Array<Team> = updateTeamPartnership(
+    withPartnership,
+    partnerId,
+    teamId,
+  );
+
+  return partnerTeam;
+};

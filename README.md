@@ -57,7 +57,7 @@ En dehors de l'utilisation de l'intelligence artificielle, l'utilisation de libr
 2. Une fonction pure est simple à tester, celle-ci ne dépendant que de ses arguments en entrée pour produire une sortie.
 3. On vérifier l'absence de modification garantissant qu'on respecte le principe d'immutabilité.
 
-# Question de recul
+# Question de recul : 
 
 1. `unknown` est plus strict dans son fonctionnement, permettant donc d'effectuer des vérifications dessus.
 2. Non, l'assertion n'effectue aucune validation pendant l'exécution, due à `as` n'existe que pour le compilateur TypeScript et disparaît aussitôt que le code est transformé en JavaScript.
