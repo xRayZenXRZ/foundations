@@ -120,11 +120,11 @@ if (team3) {
     findById(updatedTeams, 3),
   );
 }
-
+/*
 // Test de fonctionnement avec crewMembers.json
 const loadCrewMembers = await loadCrewMembersFromFile();
 const missionstate = await loadMissionState(loadCrewMembersFromFile);
-console.log(missionstate);
+console.log(loadCrewMembers);
 console.log(describeMissionState(missionstate));
 
 // Exercice pour aller plus loin.
@@ -148,3 +148,4 @@ console.table(Summary);
 // Test empty
 const emptyState: MissionState = { status: "empty" };
 console.log(describeMissionState(emptyState));
+*/
