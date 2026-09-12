@@ -130,21 +130,23 @@ console.log(describeMissionState(missionstate));
 */
 
 // Exercice pour aller plus loin.
+
+// Test tri décroissante des équipes
 if (teams) {
-  const teamsSortedByMemberCount = [...teams].sort(
+  const teamsSortedDescByMemberCount = [...teams].sort(
     (a, b) => b.memberCount - a.memberCount,
   );
-  console.log(teamsSortedByMemberCount);
+  console.log(teamsSortedDescByMemberCount);
 }
 
+// Test TeamSummary
 const Summary: Array<TeamSummary> = [...teams].map((team) => ({
   name: team.name,
   base: team.base,
   memberCount: team.memberCount,
 }));
-
 console.table(Summary);
 
+// Test empty
 const emptyState: MissionState = { status: "empty" };
-
 console.log(describeMissionState(emptyState));

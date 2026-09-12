@@ -59,5 +59,3 @@ describe("isAvailable", () => {
     expect(isAvailable(member)).toBe(true);
   });
 });
-
-//describe("getTeamName" ());

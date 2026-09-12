@@ -1,4 +1,3 @@
-import { findTeamById } from "./crew";
 import type { Team } from "./types/Team";
 
 export const addPartner = (teamet: Team, partnerId: number): Team => {
