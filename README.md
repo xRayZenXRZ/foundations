@@ -62,3 +62,10 @@ En dehors de l'utilisation de l'intelligence artificielle, l'utilisation de libr
 1. `unknown` est plus strict dans son fonctionnement, permettant donc d'effectuer des vérifications dessus.
 2. Non, l'assertion n'effectue aucune validation pendant l'exécution, due à `as` n'existe que pour le compilateur TypeScript et disparaît aussitôt que le code est transformé en JavaScript.
 3. Les deux utilisent l'union discriminée, `MissionState` utilise `status` pour savoir si on peut accéder à la `data` ou `message`, `safeParse` retourne un objet avec `success` qui vaudra `true` ou `false`
+
+# Qui suis-je ? 
+
+- Groupe de TD : 1
+- Nom : ALTANTUYA
+- Prénom : Tsogt-Erdene
+- Mail Universitaire : tsogt-erdene.altantuya2@etu-univ.lorraine.fr
