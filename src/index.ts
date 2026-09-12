@@ -121,13 +121,11 @@ if (team3) {
   );
 }
 
-/*
 // Test de fonctionnement avec crewMembers.json
 const loadCrewMembers = await loadCrewMembersFromFile();
 const missionstate = await loadMissionState(loadCrewMembersFromFile);
 console.log(missionstate);
 console.log(describeMissionState(missionstate));
-*/
 
 // Exercice pour aller plus loin.
 
